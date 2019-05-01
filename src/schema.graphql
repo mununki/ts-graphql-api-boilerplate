@@ -1,0 +1,53 @@
+type ChangePasswordResponse {
+  ok: Boolean!
+  error: String
+  user: User
+}
+
+type Mutation {
+  ChangePassword(password: String!): ChangePasswordResponse!
+  ChangeProfile(bio: String, avatar: String): ChangeProfileResponse!
+  EmailSignIn(email: String!, password: String!): EmailSignInResponse!
+  EmailSignUp(email: String!, password: String!, fullName: String!, nickName: String!): EmailSignUpResponse!
+}
+
+type ChangeProfileResponse {
+  ok: Boolean!
+  error: String
+  user: User
+}
+
+type EmailSignInResponse {
+  ok: Boolean!
+  error: String
+  token: String
+}
+
+type EmailSignUpResponse {
+  ok: Boolean!
+  error: String
+  user: User
+  token: String
+}
+
+type GetMyProfileResponse {
+  ok: Boolean!
+  error: String
+  profile: User
+}
+
+type Query {
+  GetMyProfile: GetMyProfileResponse!
+}
+
+type User {
+  id: Int!
+  email: String!
+  password: String!
+  fullName: String!
+  nickName: String!
+  bio: String
+  avatar: String
+  createdAt: String!
+  updatedAt: String!
+}
